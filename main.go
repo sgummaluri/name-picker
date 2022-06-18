@@ -24,6 +24,10 @@ func main() {
 	for name != "--done" && err == nil {
 		names_slice = append(names_slice, name)
 		name, err = reader.ReadString('\n')
+		if err != nil {
+			fmt.Print("Error reading input")
+			return
+		}
 		name = strings.TrimSuffix(name, "\r\n")
 	}
 
